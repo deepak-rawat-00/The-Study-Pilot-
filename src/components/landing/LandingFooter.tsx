@@ -176,15 +176,6 @@ export const LandingFooter: React.FC = () => {
                   Contact &amp; Support
                 </button>
               </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/login')}
-                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  Sign In / Account Info
-                </button>
-              </li>
             </ul>
           </div>
         </div>

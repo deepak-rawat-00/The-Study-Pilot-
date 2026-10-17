@@ -17,7 +17,6 @@ import { PrivacyPolicyPage } from './components/pages/PrivacyPolicyPage';
 import { TermsPage } from './components/pages/TermsPage';
 import { AboutPage } from './components/pages/AboutPage';
 import { ContactPage } from './components/pages/ContactPage';
-import { AuthPage } from './components/pages/AuthPage';
 import { NotFoundPage } from './components/pages/NotFoundPage';
 
 export const App: React.FC = () => {
@@ -43,21 +42,17 @@ export const App: React.FC = () => {
     return <ContactPage />;
   }
 
-  // Dedicated Auth Experience
-  if (currentPath === '/login') {
-    return <AuthPage initialMode="login" />;
-  }
-  if (currentPath === '/signup') {
-    return <AuthPage initialMode="signup" />;
-  }
-
   // Explicit Onboarding Route
   if (currentPath === '/onboarding') {
     return <OnboardingWizard />;
   }
 
-  // Study Workspace Application Route: /app or child paths
-  const isAppRoute = currentPath === '/app' || currentPath.startsWith('/app/');
+  // Study Workspace Application Route: /app or child paths (including redirects from legacy /login or /signup)
+  const isAppRoute =
+    currentPath === '/app' ||
+    currentPath.startsWith('/app/') ||
+    currentPath === '/login' ||
+    currentPath === '/signup';
 
   if (isAppRoute) {
     // If the student has not yet completed setup, show the wizard

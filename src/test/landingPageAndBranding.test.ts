@@ -15,7 +15,6 @@ import { PrivacyPolicyPage } from '../components/pages/PrivacyPolicyPage';
 import { TermsPage } from '../components/pages/TermsPage';
 import { AboutPage } from '../components/pages/AboutPage';
 import { ContactPage } from '../components/pages/ContactPage';
-import { AuthPage } from '../components/pages/AuthPage';
 import { NotFoundPage } from '../components/pages/NotFoundPage';
 import { LandingPage } from '../components/pages/LandingPage';
 
@@ -42,7 +41,6 @@ describe('The Study Pilot - Brand & Landing Page Architecture', () => {
       TermsPage,
       AboutPage,
       ContactPage,
-      AuthPage,
       NotFoundPage,
     ];
 

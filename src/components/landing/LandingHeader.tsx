@@ -93,14 +93,6 @@ export const LandingHeader: React.FC = () => {
 
           {/* Right Action Buttons */}
           <div className="hidden sm:flex items-center gap-3">
-            <button
-              type="button"
-              onClick={() => navigate('/login')}
-              className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
-            >
-              Sign In
-            </button>
-
             <ThemeToggle />
 
             <div className="h-5 w-px bg-slate-200 dark:bg-slate-800" aria-hidden="true" />
@@ -165,16 +157,6 @@ export const LandingHeader: React.FC = () => {
               className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 text-left"
             >
               <span>FAQ</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate('/login');
-              }}
-              className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 text-left"
-            >
-              <span>Sign In / Workspace</span>
             </button>
           </nav>
 
