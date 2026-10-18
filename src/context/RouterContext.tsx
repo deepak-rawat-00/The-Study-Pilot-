@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import React, { createContext, useContext, useEffect, useState, useCallback, useRef } from 'react';
+import { trackPageView, getPageTitleForPath } from '../utils/analytics';
 
 export type AppRoute =
   | '/'
@@ -31,6 +32,7 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   };
 
   const [currentPath, setCurrentPath] = useState<string>(getInitialPath);
+  const lastTrackedPathRef = useRef<string | null>(null);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -40,6 +42,20 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
+
+  // Track page views on initial load and client-side route transitions without duplicate events
+  useEffect(() => {
+    if (lastTrackedPathRef.current === currentPath) {
+      return;
+    }
+    lastTrackedPathRef.current = currentPath;
+
+    const title = getPageTitleForPath(currentPath);
+    if (typeof document !== 'undefined') {
+      document.title = title;
+    }
+    trackPageView(currentPath, title);
+  }, [currentPath]);
 
   const navigate = useCallback((path: string, options?: { replace?: boolean; scrollToTop?: boolean }) => {
     const [pathname, hash] = path.split('#');
