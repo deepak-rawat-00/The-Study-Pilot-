@@ -22,7 +22,7 @@ export const TermsPage: React.FC = () => {
             Terms of Use
           </h1>
           <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-            Last updated: October 2026 • The Study Pilot (thestudypilot.com)
+            Last updated: October 2026 • The Study Pilot (thestudypilot.space)
           </p>
         </div>
 

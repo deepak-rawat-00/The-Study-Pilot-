@@ -4,8 +4,9 @@ Allow: /about
 Allow: /privacy
 Allow: /terms
 Allow: /contact
-Allow: /faq
+Disallow: /app
 Disallow: /app/
+Disallow: /onboarding
 Disallow: /onboarding/
 
-Sitemap: https://thestudypilot.com/sitemap.xml
+Sitemap: https://thestudypilot.space/sitemap.xml

@@ -8,7 +8,7 @@ describe('Google Analytics 4 Integration (G-DN0QM74VWJ)', () => {
     // Provide a mocked window object for Node/Vitest test environment
     (globalThis as any).window = {
       location: {
-        origin: 'https://thestudypilot.com',
+        origin: 'https://thestudypilot.space',
       },
       dataLayer: [],
       gtag: vi.fn(),
@@ -45,7 +45,7 @@ describe('Google Analytics 4 Integration (G-DN0QM74VWJ)', () => {
     expect(mockGtag).toHaveBeenCalledWith('event', 'page_view', {
       page_title: 'Privacy Policy – The Study Pilot',
       page_path: '/privacy',
-      page_location: 'https://thestudypilot.com/privacy',
+      page_location: 'https://thestudypilot.space/privacy',
       send_to: 'G-DN0QM74VWJ',
     });
   });
@@ -61,7 +61,7 @@ describe('Google Analytics 4 Integration (G-DN0QM74VWJ)', () => {
     expect(mockGtag).toHaveBeenCalledWith('event', 'page_view', {
       page_title: 'Study Workspace – The Study Pilot',
       page_path: '/app',
-      page_location: 'https://thestudypilot.com/app',
+      page_location: 'https://thestudypilot.space/app',
       send_to: 'G-DN0QM74VWJ',
     });
   });
@@ -77,7 +77,7 @@ describe('Google Analytics 4 Integration (G-DN0QM74VWJ)', () => {
       event: 'page_view',
       page_title: 'About Us – The Study Pilot',
       page_path: '/about',
-      page_location: 'https://thestudypilot.com/about',
+      page_location: 'https://thestudypilot.space/about',
       send_to: 'G-DN0QM74VWJ',
     });
   });
