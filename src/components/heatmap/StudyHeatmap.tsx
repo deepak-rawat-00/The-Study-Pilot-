@@ -154,7 +154,7 @@ export const StudyHeatmap: React.FC<StudyHeatmapProps> = ({
             </h2>
           </div>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-            GitHub-style daily contribution calendar derived strictly from authentic active focus sessions.
+            Daily contribution calendar derived strictly from authentic active focus sessions.
           </p>
         </div>
 

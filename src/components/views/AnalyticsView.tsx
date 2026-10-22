@@ -3,7 +3,6 @@ import { useStudy } from '../../context/StudyContext';
 import { useTimer } from '../../context/TimerContext';
 import { Card } from '../common/Card';
 import { Button } from '../common/Button';
-import { Badge } from '../common/Badge';
 import { StreakStatsGrid } from '../analytics/StreakStatsGrid';
 import { StudyHeatmap } from '../heatmap/StudyHeatmap';
 import { ConsistencyCard } from '../analytics/ConsistencyCard';
@@ -94,9 +93,6 @@ export const AnalyticsView: React.FC = () => {
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
               Study Consistency & Heatmap
             </h1>
-            <Badge variant="primary" size="md">
-              LeetCode-Style Analytics
-            </Badge>
           </div>
           <p className="text-sm text-slate-500 dark:text-slate-400">
             Transparent consistency metrics and contribution calendar calculated strictly from authentic focus sessions.
