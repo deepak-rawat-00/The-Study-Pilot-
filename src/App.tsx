@@ -18,6 +18,19 @@ import { TermsPage } from './components/pages/TermsPage';
 import { AboutPage } from './components/pages/AboutPage';
 import { ContactPage } from './components/pages/ContactPage';
 import { NotFoundPage } from './components/pages/NotFoundPage';
+import { BlogIndexPage } from './blog/BlogIndexPage';
+import { ArticlePage } from './blog/ArticlePage';
+
+const ToolsIndexPage = React.lazy(() => import('./tools/ToolsIndexPage'));
+const StudyPlannerGeneratorTool = React.lazy(() => import('./tools/study-planner-generator/StudyPlannerGeneratorTool'));
+const WeeklyStudyPlannerTool = React.lazy(() => import('./tools/weekly-study-planner/WeeklyStudyPlannerTool'));
+const StudyHoursCalculatorTool = React.lazy(() => import('./tools/study-hours-calculator/StudyHoursCalculatorTool'));
+const PomodoroTimerTool = React.lazy(() => import('./tools/pomodoro-timer/PomodoroTimerTool'));
+const StudyHabitTrackerTool = React.lazy(() => import('./tools/study-habit-tracker/StudyHabitTrackerTool'));
+const StudyConsistencyCalculatorTool = React.lazy(() => import('./tools/study-consistency-calculator/StudyConsistencyCalculatorTool'));
+const ExamCountdownTool = React.lazy(() => import('./tools/exam-countdown/ExamCountdownTool'));
+const ExamPrepProgressTool = React.lazy(() => import('./tools/exam-preparation-progress/ExamPrepProgressTool'));
+const ResourcesIndexPage = React.lazy(() => import('./resources/ResourcesIndexPage'));
 
 export const App: React.FC = () => {
   const { currentTab, isOnboarding } = useStudy();
@@ -40,6 +53,89 @@ export const App: React.FC = () => {
   }
   if (currentPath === '/contact') {
     return <ContactPage />;
+  }
+
+  // Blog & Educational Guides Public Routes
+  if (currentPath === '/blog') {
+    return <BlogIndexPage />;
+  }
+  if (currentPath.startsWith('/blog/')) {
+    const slug = currentPath.replace(/^\/blog\//, '').replace(/\/$/, '');
+    return <ArticlePage slug={slug} />;
+  }
+
+  // Free Student Resource Library Public Routes
+  if (currentPath === '/resources' || currentPath === '/resources/') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-slate-950" />}>
+        <ResourcesIndexPage />
+      </React.Suspense>
+    );
+  }
+
+  // Interactive Student Tools Public Routes
+  if (currentPath === '/tools' || currentPath === '/tools/') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-slate-950" />}>
+        <ToolsIndexPage />
+      </React.Suspense>
+    );
+  }
+  if (currentPath === '/tools/study-planner-generator') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-slate-950" />}>
+        <StudyPlannerGeneratorTool />
+      </React.Suspense>
+    );
+  }
+  if (currentPath === '/tools/weekly-study-planner') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-slate-950" />}>
+        <WeeklyStudyPlannerTool />
+      </React.Suspense>
+    );
+  }
+  if (currentPath === '/tools/study-hours-calculator') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-slate-950" />}>
+        <StudyHoursCalculatorTool />
+      </React.Suspense>
+    );
+  }
+  if (currentPath === '/tools/pomodoro-timer') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-slate-950" />}>
+        <PomodoroTimerTool />
+      </React.Suspense>
+    );
+  }
+  if (currentPath === '/tools/study-habit-tracker') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-slate-950" />}>
+        <StudyHabitTrackerTool />
+      </React.Suspense>
+    );
+  }
+  if (currentPath === '/tools/study-consistency-calculator') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-slate-950" />}>
+        <StudyConsistencyCalculatorTool />
+      </React.Suspense>
+    );
+  }
+  if (currentPath === '/tools/exam-countdown') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-slate-950" />}>
+        <ExamCountdownTool />
+      </React.Suspense>
+    );
+  }
+  if (currentPath === '/tools/exam-preparation-progress') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-slate-950" />}>
+        <ExamPrepProgressTool />
+      </React.Suspense>
+    );
   }
 
   // Explicit Onboarding Route

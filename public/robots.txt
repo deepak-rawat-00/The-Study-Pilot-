@@ -10,6 +10,12 @@ Allow: /about
 Allow: /privacy
 Allow: /terms
 Allow: /contact
+Allow: /blog
+Allow: /blog/
+Allow: /tools
+Allow: /tools/
+Allow: /resources
+Allow: /resources/
 Disallow: /app
 Disallow: /app/
 Disallow: /onboarding

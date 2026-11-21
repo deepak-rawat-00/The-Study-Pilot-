@@ -32,6 +32,9 @@ describe('Google Analytics 4 Integration (G-DN0QM74VWJ)', () => {
     expect(getPageTitleForPath('/terms')).toBe('Terms of Service – The Study Pilot');
     expect(getPageTitleForPath('/about')).toBe('About Us – The Study Pilot');
     expect(getPageTitleForPath('/contact')).toBe('Contact Us – The Study Pilot');
+    expect(getPageTitleForPath('/blog')).toBe('Study Guides & Productivity Blog – The Study Pilot');
+    expect(getPageTitleForPath('/tools')).toBe('Free Student Productivity Tools – The Study Pilot');
+    expect(getPageTitleForPath('/resources')).toBe('Free Student Resource Library – The Study Pilot');
     expect(getPageTitleForPath('/unknown-route')).toBe('Page Not Found – The Study Pilot');
   });
 

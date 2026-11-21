@@ -9,8 +9,10 @@ export type AppRoute =
   | '/terms'
   | '/about'
   | '/contact'
+  | '/blog'
   | '/login'
-  | '/signup';
+  | '/signup'
+  | (string & {});
 
 interface RouterContextType {
   currentPath: string;

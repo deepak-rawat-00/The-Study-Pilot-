@@ -40,9 +40,24 @@ export function getPageTitleForPath(path: string): string {
       return 'About Us – The Study Pilot';
     case '/contact':
       return 'Contact Us – The Study Pilot';
+    case '/blog':
+      return 'Study Guides & Productivity Blog – The Study Pilot';
+    case '/tools':
+      return 'Free Student Productivity Tools – The Study Pilot';
+    case '/resources':
+      return 'Free Student Resource Library – The Study Pilot';
     default:
       if (normalizedPath.startsWith('/app/')) {
         return 'Study Workspace – The Study Pilot';
+      }
+      if (normalizedPath.startsWith('/blog/')) {
+        return 'Study Guide – The Study Pilot';
+      }
+      if (normalizedPath.startsWith('/tools/')) {
+        return 'Free Student Tool – The Study Pilot';
+      }
+      if (normalizedPath.startsWith('/resources/')) {
+        return 'Free Student Resource – The Study Pilot';
       }
       return 'Page Not Found – The Study Pilot';
   }

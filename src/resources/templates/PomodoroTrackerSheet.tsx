@@ -1,0 +1,96 @@
+import React from 'react';
+
+export const PomodoroTrackerSheet: React.FC = () => {
+  return (
+    <div className="bg-white text-slate-900 p-8 max-w-4xl mx-auto border border-slate-300 rounded-lg print:border-none print:p-0 print:m-0 font-sans text-xs">
+      {/* Header */}
+      <div className="flex justify-between items-start border-b-2 border-slate-800 pb-3 mb-4">
+        <div>
+          <h1 className="text-2xl font-black tracking-tight text-slate-900 uppercase">Pomodoro Focus Log</h1>
+          <p className="text-slate-600 text-xs mt-0.5">The Study Pilot &bull; thestudypilot.space &bull; 25-Minute Interval Focus System</p>
+        </div>
+        <div className="flex gap-4 text-right">
+          <div>
+            <span className="font-bold text-slate-700">DATE: </span>
+            <span className="inline-block border-b border-slate-400 w-28">&nbsp;</span>
+          </div>
+          <div>
+            <span className="font-bold text-slate-700">TARGET: </span>
+            <span className="inline-block border-b border-slate-400 w-16">&nbsp; sprints</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Target Progress Bar Tracker */}
+      <div className="border border-slate-400 rounded-md p-3 mb-4 bg-slate-50">
+        <div className="flex justify-between items-center mb-1.5">
+          <span className="font-bold uppercase tracking-wider text-slate-800 text-xs">Daily Sprints Visual Tracker (4 Pomodoros = 2 Net Hours)</span>
+          <span className="text-[10px] text-slate-500">Cross out each tomato icon as completed</span>
+        </div>
+        <div className="grid grid-cols-10 gap-2 text-center">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div key={i} className="border border-slate-300 bg-white rounded p-1.5">
+              <div className="text-[9px] font-mono text-slate-500">#{i + 1}</div>
+              <div className="w-5 h-5 mx-auto my-1 border-2 border-slate-600 rounded-full flex items-center justify-center font-bold text-[9px] text-slate-400">
+                25m
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Session Log Table */}
+      <div className="border border-slate-400 rounded-md overflow-hidden mb-4">
+        <table className="w-full border-collapse text-left text-[10px]">
+          <thead>
+            <tr className="bg-slate-800 text-white font-bold text-center">
+              <th className="p-2 border-r border-slate-700 w-10">#</th>
+              <th className="p-2 border-r border-slate-700 w-16">TIME</th>
+              <th className="p-2 border-r border-slate-700 text-left">SPECIFIC TASK / QUESTION RANGE</th>
+              <th className="p-2 border-r border-slate-700 w-16">25M DONE</th>
+              <th className="p-2 border-r border-slate-700 w-20">DISTRACTIONS</th>
+              <th className="p-2 border-r border-slate-700 w-16">5M REST</th>
+              <th className="p-2 text-left">TANGIBLE OUTPUT COMPLETED</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-300">
+            {Array.from({ length: 8 }).map((_, idx) => (
+              <tr key={idx} className={idx % 2 === 1 ? 'bg-slate-50' : 'bg-white'}>
+                <td className="p-2 border-r border-slate-300 text-center font-mono font-bold text-slate-700">{idx + 1}</td>
+                <td className="p-2 border-r border-slate-300 text-center text-slate-400">&nbsp;</td>
+                <td className="p-2 border-r border-slate-300">&nbsp;</td>
+                <td className="p-2 border-r border-slate-300 text-center">[ &nbsp; ]</td>
+                <td className="p-2 border-r border-slate-300 text-center text-slate-300 font-mono">| | |</td>
+                <td className="p-2 border-r border-slate-300 text-center">[ &nbsp; ]</td>
+                <td className="p-2 text-slate-400">&nbsp;</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* End of Day Reflection */}
+      <div className="grid grid-cols-3 gap-3 border border-slate-400 rounded-md p-3 bg-slate-50/50">
+        <div>
+          <span className="font-bold text-slate-800 text-xs block mb-1">Total Sprints Completed:</span>
+          <div className="text-lg font-black text-slate-800">____ / 10</div>
+        </div>
+        <div>
+          <span className="font-bold text-slate-800 text-xs block mb-1">Total Net Focus Time:</span>
+          <div className="text-lg font-black text-slate-800">____ hrs ____ min</div>
+        </div>
+        <div>
+          <span className="font-bold text-slate-800 text-xs block mb-1">Top Distraction Today:</span>
+          <div className="border-b border-slate-300 h-5 mt-1">&nbsp;</div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="mt-4 pt-2 border-t border-slate-200 text-center text-[9px] text-slate-400">
+        Free printable study resource &bull; Generated by The Study Pilot &bull; thestudypilot.space/resources
+      </div>
+    </div>
+  );
+};
+
+export default PomodoroTrackerSheet;

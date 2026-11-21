@@ -4,7 +4,7 @@ import { ThemeToggle } from '../layout/ThemeToggle';
 import { Button } from '../common/Button';
 import { useRouter } from '../../context/RouterContext';
 import { useStudy } from '../../context/StudyContext';
-import { Menu, X, ArrowRight, LayoutDashboard, Sparkles, BookOpen } from 'lucide-react';
+import { Menu, X, ArrowRight, LayoutDashboard, Sparkles, BookOpen, FileText } from 'lucide-react';
 
 export const LandingHeader: React.FC = () => {
   const { navigate, goToApp, goToOnboarding } = useRouter();
@@ -89,6 +89,27 @@ export const LandingHeader: React.FC = () => {
             >
               FAQ
             </button>
+            <button
+              type="button"
+              onClick={() => navigate('/tools')}
+              className="px-3 py-2 rounded-lg hover:text-slate-900 hover:bg-slate-100 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors focus-visible:ring-2 focus-visible:ring-brand-500 outline-hidden text-brand-600 dark:text-brand-400 font-semibold"
+            >
+              Tools
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/blog')}
+              className="px-3 py-2 rounded-lg hover:text-slate-900 hover:bg-slate-100 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors focus-visible:ring-2 focus-visible:ring-brand-500 outline-hidden text-slate-600 dark:text-slate-300"
+            >
+              Guides
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/resources')}
+              className="px-3 py-2 rounded-lg hover:text-slate-900 hover:bg-slate-100 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors focus-visible:ring-2 focus-visible:ring-brand-500 outline-hidden text-slate-600 dark:text-slate-300"
+            >
+              Resources
+            </button>
           </nav>
 
           {/* Right Action Buttons */}
@@ -157,6 +178,39 @@ export const LandingHeader: React.FC = () => {
               className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 text-left"
             >
               <span>FAQ</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate('/tools');
+              }}
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 text-left font-semibold text-brand-600 dark:text-brand-400"
+            >
+              <span>Free Study Tools</span>
+              <Sparkles className="w-4 h-4 text-brand-500" />
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate('/blog');
+              }}
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 text-left"
+            >
+              <span>Study Guides &amp; Blog</span>
+              <BookOpen className="w-4 h-4 text-slate-400" />
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate('/resources');
+              }}
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 text-left"
+            >
+              <span>Free Printables &amp; Sheets</span>
+              <FileText className="w-4 h-4 text-slate-400" />
             </button>
           </nav>
 

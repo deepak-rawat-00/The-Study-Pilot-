@@ -38,16 +38,43 @@ export const LandingFooter: React.FC = () => {
           {/* Core Tools */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-              Study Tools
+              Free Study Tools
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <button
                   type="button"
-                  onClick={() => goToApp()}
+                  onClick={() => navigate('/tools/study-planner-generator')}
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
                 >
-                  Study Dashboard
+                  Study Planner Generator
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => navigate('/tools/weekly-study-planner')}
+                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                >
+                  Weekly Study Planner
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => navigate('/tools/study-hours-calculator')}
+                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                >
+                  Study Hours Calculator
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => navigate('/tools')}
+                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium text-brand-600 dark:text-brand-400"
+                >
+                  All Interactive Tools &rarr;
                 </button>
               </li>
               <li>
@@ -56,34 +83,7 @@ export const LandingFooter: React.FC = () => {
                   onClick={() => goToApp()}
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
                 >
-                  Focus Timer
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => goToApp()}
-                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  Subject Allocations
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => goToApp()}
-                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  Exam Countdown
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => goToApp()}
-                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  Streaks &amp; Heatmap
+                  Study Workspace (App)
                 </button>
               </li>
             </ul>
@@ -138,6 +138,24 @@ export const LandingFooter: React.FC = () => {
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
                 >
                   About The Study Pilot
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => navigate('/blog')}
+                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium text-brand-600 dark:text-brand-400"
+                >
+                  Study Guides &amp; Blog
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => navigate('/resources')}
+                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium text-brand-600 dark:text-brand-400"
+                >
+                  Free Printables &amp; Sheets
                 </button>
               </li>
             </ul>
