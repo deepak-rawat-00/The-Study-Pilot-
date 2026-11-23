@@ -1,14 +1,41 @@
 import React from 'react';
 import { LandingHeader } from '../landing/LandingHeader';
 import { LandingFooter } from '../landing/LandingFooter';
+import { SEOHead } from '../seo/SEOHead';
 import { ShieldCheck, Lock, Database, Trash2, Eye, Server } from 'lucide-react';
 import { useRouter } from '../../context/RouterContext';
 
 export const PrivacyPolicyPage: React.FC = () => {
   const { navigate } = useRouter();
 
+  const privacySchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Privacy Policy – The Study Pilot',
+    description:
+      "Read The Study Pilot's privacy policy. Learn how our local-first browser storage keeps your study hours, session notes, and targets 100% private.",
+    url: 'https://thestudypilot.space/privacy',
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+      <SEOHead
+        title="Privacy Policy – The Study Pilot: Local-First Student Data Protection"
+        description="Read The Study Pilot's privacy policy. Learn how our local-first browser storage keeps your study hours, session notes, and targets 100% private."
+        canonicalUrl="https://thestudypilot.space/privacy"
+        keywords={[
+          'privacy policy',
+          'student privacy',
+          'local storage study data',
+          'the study pilot privacy',
+        ]}
+        breadcrumbs={[
+          { name: 'Home', url: 'https://thestudypilot.space/' },
+          { name: 'Privacy Policy', url: 'https://thestudypilot.space/privacy' },
+        ]}
+        jsonLd={privacySchema}
+      />
+
       <LandingHeader />
 
       <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

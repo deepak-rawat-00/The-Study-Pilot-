@@ -26,8 +26,12 @@ interface RouterContextType {
 
 const RouterContext = createContext<RouterContextType | undefined>(undefined);
 
-export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const RouterProvider: React.FC<{ children: React.ReactNode; initialPath?: string }> = ({
+  children,
+  initialPath,
+}) => {
   const getInitialPath = (): string => {
+    if (initialPath) return initialPath;
     if (typeof window === 'undefined') return '/';
     const path = window.location.pathname;
     return path || '/';

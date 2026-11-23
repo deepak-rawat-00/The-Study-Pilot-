@@ -17,6 +17,7 @@ export interface SEOHeadProps {
   authorName?: string;
   breadcrumbs?: BreadcrumbItem[];
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  noindex?: boolean;
 }
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
@@ -31,6 +32,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   authorName = 'The Study Pilot Editorial Team',
   breadcrumbs,
   jsonLd,
+  noindex = false,
 }) => {
   useEffect(() => {
     if (typeof document === 'undefined') return;
@@ -54,7 +56,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     if (keywords && keywords.length > 0) {
       setMetaTag('name', 'keywords', keywords.join(', '));
     }
-    setMetaTag('name', 'robots', 'index, follow');
+    setMetaTag('name', 'robots', noindex ? 'noindex, nofollow' : 'index, follow');
 
     // 4. Update or create canonical link
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -151,6 +153,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     authorName,
     breadcrumbs,
     jsonLd,
+    noindex,
   ]);
 
   return null;

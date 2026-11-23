@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from '../../context/RouterContext';
+import { Link } from '../../components/common/Link';
 import { Button } from '../../components/common/Button';
 import { Sparkles, ArrowRight, Calendar, Clock, Calculator, Flame, Hourglass, Target } from 'lucide-react';
 
@@ -85,7 +86,7 @@ export interface RelatedToolsCardProps {
 }
 
 export const RelatedToolsCard: React.FC<RelatedToolsCardProps> = ({ toolSlugs, className }) => {
-  const { navigate, goToApp } = useRouter();
+  const { goToApp } = useRouter();
 
   const selectedTools = toolSlugs
     .map((slug) => TOOL_REGISTRY[slug])
@@ -156,14 +157,13 @@ export const RelatedToolsCard: React.FC<RelatedToolsCardProps> = ({ toolSlugs, c
                   <p className="mt-0.5 text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
                     {tool.description}
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => navigate(tool.path)}
+                  <Link
+                    to={tool.path}
                     className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300"
                   >
                     <span>Launch Free Tool</span>
                     <ArrowRight className="w-3 h-3" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

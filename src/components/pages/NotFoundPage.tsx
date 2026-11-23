@@ -1,6 +1,7 @@
 import React from 'react';
 import { LandingHeader } from '../landing/LandingHeader';
 import { LandingFooter } from '../landing/LandingFooter';
+import { SEOHead } from '../seo/SEOHead';
 import { Button } from '../common/Button';
 import { useRouter } from '../../context/RouterContext';
 import { Compass, Home, LayoutDashboard } from 'lucide-react';
@@ -14,6 +15,13 @@ export const NotFoundPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+      <SEOHead
+        title="Page Not Found – The Study Pilot"
+        description="The requested page could not be found. Return to The Study Pilot to plan your studies, track focus hours, and build lasting consistency."
+        canonicalUrl="https://thestudypilot.space/404"
+        noindex={true}
+      />
+
       <LandingHeader />
 
       <main className="flex-1 flex items-center justify-center px-4 py-16 text-center">

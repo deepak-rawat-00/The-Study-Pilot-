@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouter } from '../../context/RouterContext';
+import { Link } from '../../components/common/Link';
 import { FileText, Printer, ArrowRight } from 'lucide-react';
 
 interface ResourcePreview {
@@ -83,8 +83,6 @@ export const RelatedResourcesCard: React.FC<RelatedResourcesCardProps> = ({
   customSlugs,
   className,
 }) => {
-  const { navigate } = useRouter();
-
   // Determine which resources to display
   let selectedSlugs: string[] = customSlugs || [];
   if (selectedSlugs.length === 0) {
@@ -141,14 +139,13 @@ export const RelatedResourcesCard: React.FC<RelatedResourcesCardProps> = ({
             <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">
               {item.tagline}
             </p>
-            <button
-              type="button"
-              onClick={() => navigate('/resources')}
+            <Link
+              to="/resources"
               className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-brand-600 dark:text-brand-400 hover:underline"
             >
               <span>View &amp; Print Free</span>
               <ArrowRight className="w-3 h-3" />
-            </button>
+            </Link>
           </div>
         ))}
       </div>

@@ -1,14 +1,41 @@
 import React from 'react';
 import { LandingHeader } from '../landing/LandingHeader';
 import { LandingFooter } from '../landing/LandingFooter';
+import { SEOHead } from '../seo/SEOHead';
 import { FileText, AlertCircle } from 'lucide-react';
 import { useRouter } from '../../context/RouterContext';
 
 export const TermsPage: React.FC = () => {
   const { navigate } = useRouter();
 
+  const termsSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Terms of Service – The Study Pilot',
+    description:
+      "Read the terms of use and service agreement for The Study Pilot's free study tools, calculators, printables, and study planning guides.",
+    url: 'https://thestudypilot.space/terms',
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+      <SEOHead
+        title="Terms of Service – The Study Pilot"
+        description="Read the terms of use and service agreement for The Study Pilot's free study tools, calculators, printables, and study planning guides."
+        canonicalUrl="https://thestudypilot.space/terms"
+        keywords={[
+          'terms of service',
+          'terms of use',
+          'the study pilot terms',
+          'student tool agreement',
+        ]}
+        breadcrumbs={[
+          { name: 'Home', url: 'https://thestudypilot.space/' },
+          { name: 'Terms of Service', url: 'https://thestudypilot.space/terms' },
+        ]}
+        jsonLd={termsSchema}
+      />
+
       <LandingHeader />
 
       <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

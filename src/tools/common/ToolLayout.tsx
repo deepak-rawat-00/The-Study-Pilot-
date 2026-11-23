@@ -4,6 +4,7 @@ import { LandingFooter } from '../../components/landing/LandingFooter';
 import { SEOHead } from '../../components/seo/SEOHead';
 import { Breadcrumbs } from '../../blog/components/Breadcrumbs';
 import { useRouter } from '../../context/RouterContext';
+import { Link } from '../../components/common/Link';
 import { Badge } from '../../components/common/Badge';
 import { Sparkles, ArrowLeft, BookOpen, ArrowRight, Printer, Compass } from 'lucide-react';
 
@@ -82,14 +83,13 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
         <div className="flex flex-wrap items-center justify-between gap-3 mb-6 print:hidden">
           <Breadcrumbs items={breadcrumbs} />
 
-          <button
-            type="button"
-            onClick={() => navigate('/tools')}
+          <Link
+            to="/tools"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>All Interactive Tools</span>
-          </button>
+          </Link>
         </div>
 
         {/* Tool Header Section */}
@@ -143,14 +143,13 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
               <Compass className="w-4 h-4 text-brand-600 dark:text-brand-400" />
               <span>Recommended Study Resources &amp; Companion Tools</span>
             </h2>
-            <button
-              type="button"
-              onClick={() => navigate('/tools')}
+            <Link
+              to="/tools"
               className="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline inline-flex items-center gap-1"
             >
               <span>Explore All 8 Tools</span>
               <ArrowRight className="w-3 h-3" />
-            </button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -169,14 +168,13 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                     Step-by-step cognitive learning principles, schedule examples, and evidence-based routines.
                   </p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => navigate(`/blog/${relatedArticleSlug}`)}
+                <Link
+                  to={`/blog/${relatedArticleSlug}`}
                   className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline"
                 >
                   <span>Read Guide</span>
                   <ArrowRight className="w-3 h-3" />
-                </button>
+                </Link>
               </div>
             )}
 
@@ -195,14 +193,13 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                     High-contrast physical study sheet to execute your sessions without screen distractions.
                   </p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => navigate('/resources')}
+                <Link
+                  to="/resources"
                   className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline"
                 >
                   <span>Print Worksheet Free</span>
                   <ArrowRight className="w-3 h-3" />
-                </button>
+                </Link>
               </div>
             )}
 

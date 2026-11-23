@@ -3,6 +3,7 @@ import { LandingHeader } from '../components/landing/LandingHeader';
 import { LandingFooter } from '../components/landing/LandingFooter';
 import { SEOHead } from '../components/seo/SEOHead';
 import { useRouter } from '../context/RouterContext';
+import { Link } from '../components/common/Link';
 import { Button } from '../components/common/Button';
 import { Badge } from '../components/common/Badge';
 import {
@@ -113,7 +114,7 @@ const TOOLS_LIST: ToolCardItem[] = [
 ];
 
 export const ToolsIndexPage: React.FC = () => {
-  const { navigate, goToApp } = useRouter();
+  const { goToApp } = useRouter();
 
   const toolsCollectionSchema = {
     '@context': 'https://schema.org',
@@ -200,7 +201,12 @@ export const ToolsIndexPage: React.FC = () => {
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-snug">
-                    {tool.name}
+                    <Link
+                      to={tool.path}
+                      className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                    >
+                      {tool.name}
+                    </Link>
                   </h3>
 
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -210,15 +216,13 @@ export const ToolsIndexPage: React.FC = () => {
 
                 <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
                   {isActive ? (
-                    <Button
-                      size="md"
-                      variant="primary"
-                      onClick={() => navigate(tool.path)}
-                      className="w-full justify-center font-bold"
-                      rightIcon={<ArrowRight className="w-4 h-4" />}
+                    <Link
+                      to={tool.path}
+                      className="inline-flex items-center justify-center font-bold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 select-none active:scale-[0.98] bg-brand-600 hover:bg-brand-700 text-white shadow-sm hover:shadow-brand-500/25 hover:shadow-md focus:ring-brand-500 dark:bg-brand-500 dark:hover:bg-brand-600 dark:focus:ring-offset-slate-900 text-sm px-4 py-2 gap-2 w-full text-center"
                     >
-                      Launch Tool
-                    </Button>
+                      <span>Launch Tool</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   ) : (
                     <span className="block text-center text-xs text-slate-400 py-2 font-medium">
                       Available Soon

@@ -46,6 +46,46 @@ export function getPageTitleForPath(path: string): string {
       return 'Free Student Productivity Tools – The Study Pilot';
     case '/resources':
       return 'Free Student Resource Library – The Study Pilot';
+    // Interactive Tool Routes
+    case '/tools/study-planner-generator':
+      return 'Study Planner Generator – The Study Pilot';
+    case '/tools/weekly-study-planner':
+      return 'Weekly Study Planner – The Study Pilot';
+    case '/tools/study-hours-calculator':
+      return 'Study Hours Calculator – The Study Pilot';
+    case '/tools/pomodoro-timer':
+      return 'Pomodoro Study Timer – The Study Pilot';
+    case '/tools/study-habit-tracker':
+      return 'Study Habit Tracker – The Study Pilot';
+    case '/tools/study-consistency-calculator':
+      return 'Study Consistency Calculator – The Study Pilot';
+    case '/tools/exam-countdown':
+      return 'Exam Countdown Tracker – The Study Pilot';
+    case '/tools/exam-preparation-progress':
+      return 'Exam Preparation Progress Tracker – The Study Pilot';
+    // Educational Article Routes
+    case '/blog/how-to-create-a-study-schedule':
+      return 'How to Create a Study Schedule You Can Actually Follow – The Study Pilot';
+    case '/blog/how-to-study-consistently':
+      return 'How to Study Consistently Every Day – The Study Pilot';
+    case '/blog/how-to-stop-procrastinating-while-studying':
+      return 'How to Stop Procrastinating While Studying – The Study Pilot';
+    case '/blog/how-to-plan-multiple-subjects':
+      return 'How to Plan and Balance Multiple Subjects – The Study Pilot';
+    case '/blog/how-to-track-study-time':
+      return 'How to Track Study Time Accurately – The Study Pilot';
+    case '/blog/pomodoro-technique-vs-deep-work':
+      return 'Pomodoro Technique vs Deep Work – The Study Pilot';
+    case '/blog/how-to-create-a-weekly-study-plan':
+      return 'How to Create a Weekly Study Plan – The Study Pilot';
+    case '/blog/competitive-exam-study-plan':
+      return 'Competitive Exam Study Plan Framework – The Study Pilot';
+    case '/blog/how-to-study-with-limited-time':
+      return 'How to Study with Limited Time – The Study Pilot';
+    case '/blog/how-to-restart-studying-after-losing-motivation':
+      return 'How to Restart Studying After Losing Motivation – The Study Pilot';
+    case '/blog/how-to-build-a-study-habit':
+      return 'How to Build a Permanent Daily Study Habit – The Study Pilot';
     default:
       if (normalizedPath.startsWith('/app/')) {
         return 'Study Workspace – The Study Pilot';

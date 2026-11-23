@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronRight, Home } from 'lucide-react';
-import { useRouter } from '../../context/RouterContext';
+import { Link } from '../../components/common/Link';
 
 export interface BreadcrumbItem {
   label: string;
@@ -12,8 +12,6 @@ export interface BreadcrumbsProps {
 }
 
 export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
-  const { navigate } = useRouter();
-
   return (
     <nav
       aria-label="Breadcrumb"
@@ -21,14 +19,13 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
     >
       <ol className="flex items-center gap-1.5">
         <li>
-          <button
-            type="button"
-            onClick={() => navigate('/')}
+          <Link
+            to="/"
             className="flex items-center gap-1 hover:text-slate-900 dark:hover:text-slate-200 transition-colors focus-visible:outline-hidden focus-visible:underline"
           >
             <Home className="w-3.5 h-3.5" />
             <span className="sr-only">Home</span>
-          </button>
+          </Link>
         </li>
 
         {items.map((item, idx) => {
@@ -38,13 +35,12 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
             <li key={idx} className="flex items-center gap-1.5">
               <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" aria-hidden="true" />
               {item.href && !isLast ? (
-                <button
-                  type="button"
-                  onClick={() => navigate(item.href!)}
+                <Link
+                  to={item.href!}
                   className="hover:text-slate-900 dark:hover:text-slate-200 transition-colors focus-visible:outline-hidden focus-visible:underline"
                 >
                   {item.label}
-                </button>
+                </Link>
               ) : (
                 <span
                   className="font-medium text-slate-800 dark:text-slate-200 truncate max-w-[200px] sm:max-w-xs"

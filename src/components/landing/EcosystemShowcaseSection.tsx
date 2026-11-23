@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouter } from '../../context/RouterContext';
+import { Link } from '../common/Link';
 import {
   Calendar,
   Clock,
@@ -12,8 +12,6 @@ import {
 } from 'lucide-react';
 
 export const EcosystemShowcaseSection: React.FC = () => {
-  const { navigate } = useRouter();
-
   const featuredTools = [
     {
       title: 'Study Planner Generator',
@@ -90,21 +88,19 @@ export const EcosystemShowcaseSection: React.FC = () => {
             </div>
 
             <div className="pt-6 border-t border-slate-200/70 dark:border-slate-800/80 mt-6 flex items-center justify-between">
-              <button
-                type="button"
-                onClick={() => navigate('/blog/how-to-create-a-study-schedule')}
+              <Link
+                to="/blog/how-to-create-a-study-schedule"
                 className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-600 dark:text-brand-400 hover:underline"
               >
                 <span>Read Full 20-Point Guide</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate('/blog')}
+              </Link>
+              <Link
+                to="/blog"
                 className="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
               >
                 All 11 Guides &rarr;
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -130,21 +126,19 @@ export const EcosystemShowcaseSection: React.FC = () => {
             </div>
 
             <div className="pt-6 border-t border-slate-200/70 dark:border-slate-800/80 mt-6 flex items-center justify-between">
-              <button
-                type="button"
-                onClick={() => navigate('/tools')}
+              <Link
+                to="/tools"
                 className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-600 dark:text-brand-400 hover:underline"
               >
                 <span>Launch Interactive Tools</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate('/tools/study-planner-generator')}
+              </Link>
+              <Link
+                to="/tools/study-planner-generator"
                 className="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
               >
                 Planner Generator &rarr;
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -170,21 +164,19 @@ export const EcosystemShowcaseSection: React.FC = () => {
             </div>
 
             <div className="pt-6 border-t border-slate-200/70 dark:border-slate-800/80 mt-6 flex items-center justify-between">
-              <button
-                type="button"
-                onClick={() => navigate('/resources')}
+              <Link
+                to="/resources"
                 className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-600 dark:text-brand-400 hover:underline"
               >
                 <span>Browse &amp; Print Free</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate('/resources')}
+              </Link>
+              <Link
+                to="/resources"
                 className="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
               >
                 10 Worksheets &rarr;
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -194,10 +186,9 @@ export const EcosystemShowcaseSection: React.FC = () => {
           {featuredTools.map((tool) => {
             const Icon = tool.icon;
             return (
-              <button
+              <Link
                 key={tool.title}
-                type="button"
-                onClick={() => navigate(tool.path)}
+                to={tool.path}
                 className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-left hover:border-brand-400 hover:shadow-xs transition-all group flex items-start gap-3"
               >
                 <div className="w-9 h-9 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-300 flex items-center justify-center shrink-0 mt-0.5">
@@ -214,7 +205,7 @@ export const EcosystemShowcaseSection: React.FC = () => {
                     {tool.desc}
                   </p>
                 </div>
-              </button>
+              </Link>
             );
           })}
         </div>

@@ -1,12 +1,29 @@
 import React from 'react';
 import { LandingHeader } from '../landing/LandingHeader';
 import { LandingFooter } from '../landing/LandingFooter';
+import { SEOHead } from '../seo/SEOHead';
 import { Compass, Target, ShieldCheck, Heart, Globe2 } from 'lucide-react';
 import { Button } from '../common/Button';
 import { useRouter } from '../../context/RouterContext';
 
 export const AboutPage: React.FC = () => {
   const { goToOnboarding } = useRouter();
+
+  const aboutSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About The Study Pilot',
+    description:
+      'The Study Pilot provides free, privacy-first study planners, consistency trackers, focus timers, and study frameworks for students worldwide.',
+    url: 'https://thestudypilot.space/about',
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'The Study Pilot',
+      url: 'https://thestudypilot.space',
+      logo: 'https://thestudypilot.space/favicon.svg',
+      description: 'Free, privacy-first student productivity tools and learning frameworks.',
+    },
+  };
 
   const principles = [
     {
@@ -33,6 +50,24 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+      <SEOHead
+        title="About Us – The Study Pilot: Mission, Principles & Student Privacy"
+        description="Learn about The Study Pilot's mission: authentic study tracking, local-first privacy, and free, distraction-free productivity tools for students worldwide."
+        canonicalUrl="https://thestudypilot.space/about"
+        keywords={[
+          'about the study pilot',
+          'student productivity tools',
+          'study planner mission',
+          'privacy-first study app',
+          'free student tools',
+        ]}
+        breadcrumbs={[
+          { name: 'Home', url: 'https://thestudypilot.space/' },
+          { name: 'About Us', url: 'https://thestudypilot.space/about' },
+        ]}
+        jsonLd={aboutSchema}
+      />
+
       <LandingHeader />
 
       <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

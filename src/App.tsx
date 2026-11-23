@@ -20,6 +20,7 @@ import { ContactPage } from './components/pages/ContactPage';
 import { NotFoundPage } from './components/pages/NotFoundPage';
 import { BlogIndexPage } from './blog/BlogIndexPage';
 import { ArticlePage } from './blog/ArticlePage';
+import { SEOHead } from './components/seo/SEOHead';
 
 const ToolsIndexPage = React.lazy(() => import('./tools/ToolsIndexPage'));
 const StudyPlannerGeneratorTool = React.lazy(() => import('./tools/study-planner-generator/StudyPlannerGeneratorTool'));
@@ -140,7 +141,17 @@ export const App: React.FC = () => {
 
   // Explicit Onboarding Route
   if (currentPath === '/onboarding') {
-    return <OnboardingWizard />;
+    return (
+      <>
+        <SEOHead
+          title="Setup Study Plan – The Study Pilot"
+          description="Setup your personalized study goals, subjects, and exam dates in The Study Pilot."
+          canonicalUrl="https://thestudypilot.space/onboarding"
+          noindex={true}
+        />
+        <OnboardingWizard />
+      </>
+    );
   }
 
   // Study Workspace Application Route: /app or child paths (including redirects from legacy /login or /signup)
@@ -153,7 +164,17 @@ export const App: React.FC = () => {
   if (isAppRoute) {
     // If the student has not yet completed setup, show the wizard
     if (isOnboarding) {
-      return <OnboardingWizard />;
+      return (
+        <>
+          <SEOHead
+            title="Setup Study Plan – The Study Pilot"
+            description="Setup your personalized study goals, subjects, and exam dates in The Study Pilot."
+            canonicalUrl="https://thestudypilot.space/onboarding"
+            noindex={true}
+          />
+          <OnboardingWizard />
+        </>
+      );
     }
 
     const renderActiveView = () => {
@@ -177,6 +198,12 @@ export const App: React.FC = () => {
 
     return (
       <div className="flex min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
+        <SEOHead
+          title="Study Workspace – The Study Pilot"
+          description="Your private study dashboard, focus timer, subject targets, and exam countdowns."
+          canonicalUrl="https://thestudypilot.space/app"
+          noindex={true}
+        />
         {/* Sidebar (Desktop sticky & Mobile drawer) */}
         <Sidebar />
 

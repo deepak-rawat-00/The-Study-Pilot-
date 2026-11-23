@@ -1,14 +1,11 @@
 import React from 'react';
 import { BrandLogo } from '../brand/BrandLogo';
+import { Link } from '../common/Link';
 import { useRouter } from '../../context/RouterContext';
 import { ShieldCheck } from 'lucide-react';
 
 export const LandingFooter: React.FC = () => {
-  const { navigate, goToApp } = useRouter();
-
-  const handleNavClick = (sectionId: string) => {
-    navigate(`/#${sectionId}`);
-  };
+  const { goToApp } = useRouter();
 
   return (
     <footer className="border-t border-slate-200/80 bg-white dark:border-slate-800 dark:bg-slate-950 text-slate-600 dark:text-slate-400 text-sm">
@@ -16,14 +13,13 @@ export const LandingFooter: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand & Mission column (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <button
-              type="button"
-              onClick={() => navigate('/')}
+            <Link
+              to="/"
               className="group flex items-center text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-brand-500 rounded-xl"
               aria-label="The Study Pilot Home"
             >
               <BrandLogo size="md" subtitle="Navigation for your study goals" />
-            </button>
+            </Link>
 
             <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed">
               Plan Your Study. Build Your Streak. Reach Your Goals. The Study Pilot helps students turn ambitious study plans into consistent daily habits.
@@ -42,40 +38,44 @@ export const LandingFooter: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/tools/study-planner-generator')}
+                <Link
+                  to="/tools/study-planner-generator"
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
                 >
                   Study Planner Generator
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/tools/weekly-study-planner')}
+                <Link
+                  to="/tools/weekly-study-planner"
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
                 >
                   Weekly Study Planner
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/tools/study-hours-calculator')}
+                <Link
+                  to="/tools/study-hours-calculator"
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
                 >
                   Study Hours Calculator
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/tools')}
+                <Link
+                  to="/tools/pomodoro-timer"
+                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                >
+                  Pomodoro Focus Timer
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/tools"
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium text-brand-600 dark:text-brand-400"
                 >
-                  All Interactive Tools &rarr;
-                </button>
+                  All 8 Interactive Tools &rarr;
+                </Link>
               </li>
               <li>
                 <button
@@ -89,74 +89,59 @@ export const LandingFooter: React.FC = () => {
             </ul>
           </div>
 
-          {/* Platform Exploration */}
+          {/* Platform Exploration & Guides */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-              Explore
+              Explore &amp; Guides
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <button
-                  type="button"
-                  onClick={() => handleNavClick('features')}
-                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  All Features
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => handleNavClick('how-it-works')}
-                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  How It Works
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => handleNavClick('analytics-preview')}
-                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  Consistency Analytics
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => handleNavClick('faq')}
-                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  Frequently Asked Questions
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/about')}
-                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  About The Study Pilot
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/blog')}
+                <Link
+                  to="/blog"
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium text-brand-600 dark:text-brand-400"
                 >
                   Study Guides &amp; Blog
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/resources')}
+                <Link
+                  to="/blog/how-to-create-a-study-schedule"
+                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors text-xs"
+                >
+                  Study Schedule Blueprint
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blog/how-to-study-consistently"
+                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors text-xs"
+                >
+                  Daily Consistency Guide
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blog/how-to-stop-procrastinating-while-studying"
+                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors text-xs"
+                >
+                  Stop Procrastinating Guide
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/resources"
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium text-brand-600 dark:text-brand-400"
                 >
                   Free Printables &amp; Sheets
-                </button>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                >
+                  About The Study Pilot
+                </Link>
               </li>
             </ul>
           </div>
@@ -168,31 +153,28 @@ export const LandingFooter: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/privacy')}
+                <Link
+                  to="/privacy"
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
                 >
                   Privacy Policy
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/terms')}
+                <Link
+                  to="/terms"
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
                 >
                   Terms of Use
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/contact')}
+                <Link
+                  to="/contact"
                   className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
                 >
                   Contact &amp; Support
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -204,29 +186,26 @@ export const LandingFooter: React.FC = () => {
             &copy; {new Date().getFullYear()} The Study Pilot. All rights reserved. Free, privacy-first study companion.
           </p>
           <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() => navigate('/privacy')}
+            <Link
+              to="/privacy"
               className="hover:underline"
             >
               Privacy
-            </button>
+            </Link>
             <span>•</span>
-            <button
-              type="button"
-              onClick={() => navigate('/terms')}
+            <Link
+              to="/terms"
               className="hover:underline"
             >
               Terms
-            </button>
+            </Link>
             <span>•</span>
-            <button
-              type="button"
-              onClick={() => navigate('/contact')}
+            <Link
+              to="/contact"
               className="hover:underline"
             >
               Contact
-            </button>
+            </Link>
           </div>
         </div>
       </div>

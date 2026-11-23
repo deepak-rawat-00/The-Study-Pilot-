@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArticleMeta } from '../types';
-import { useRouter } from '../../context/RouterContext';
+import { Link } from '../../components/common/Link';
 import { BookOpen, ArrowRight, Clock } from 'lucide-react';
 import { Badge } from '../../components/common/Badge';
 
@@ -13,8 +13,6 @@ export const RelatedArticlesGrid: React.FC<RelatedArticlesGridProps> = ({
   articles,
   className,
 }) => {
-  const { navigate } = useRouter();
-
   if (!articles || articles.length === 0) return null;
 
   return (
@@ -30,14 +28,13 @@ export const RelatedArticlesGrid: React.FC<RelatedArticlesGridProps> = ({
           </h3>
         </div>
 
-        <button
-          type="button"
-          onClick={() => navigate('/blog')}
+        <Link
+          to="/blog"
           className="text-xs font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300 hidden sm:inline-flex items-center gap-1"
         >
           <span>All Guides</span>
           <ArrowRight className="w-3.5 h-3.5" />
-        </button>
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -58,13 +55,12 @@ export const RelatedArticlesGrid: React.FC<RelatedArticlesGridProps> = ({
               </div>
 
               <h4 className="text-base font-bold text-slate-900 dark:text-white line-clamp-2 leading-snug">
-                <button
-                  type="button"
-                  onClick={() => navigate(`/blog/${art.slug}`)}
+                <Link
+                  to={`/blog/${art.slug}`}
                   className="hover:text-brand-600 dark:hover:text-brand-400 text-left transition-colors"
                 >
                   {art.title}
-                </button>
+                </Link>
               </h4>
 
               <p className="mt-2 text-xs text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed">
@@ -76,14 +72,13 @@ export const RelatedArticlesGrid: React.FC<RelatedArticlesGridProps> = ({
               <span className="text-slate-400 text-[11px]">
                 {art.author.name}
               </span>
-              <button
-                type="button"
-                onClick={() => navigate(`/blog/${art.slug}`)}
+              <Link
+                to={`/blog/${art.slug}`}
                 className="font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300 inline-flex items-center gap-1"
               >
                 <span>Read</span>
                 <ArrowRight className="w-3 h-3" />
-              </button>
+              </Link>
             </div>
           </article>
         ))}

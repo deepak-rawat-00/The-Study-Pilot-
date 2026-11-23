@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrandLogo } from '../brand/BrandLogo';
 import { ThemeToggle } from '../layout/ThemeToggle';
 import { Button } from '../common/Button';
+import { Link } from '../common/Link';
 import { useRouter } from '../../context/RouterContext';
 import { useStudy } from '../../context/StudyContext';
 import { Menu, X, ArrowRight, LayoutDashboard, Sparkles, BookOpen, FileText } from 'lucide-react';
@@ -47,14 +48,13 @@ export const LandingHeader: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 sm:h-20 items-center justify-between gap-4">
           {/* Brand Logo */}
-          <button
-            type="button"
-            onClick={() => navigate('/')}
+          <Link
+            to="/"
             className="group flex items-center gap-2 text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-brand-500 rounded-xl"
             aria-label="The Study Pilot - Home"
           >
             <BrandLogo size="md" subtitle="Navigation for your study goals" />
-          </button>
+          </Link>
 
           {/* Center Navigation Links (Desktop) */}
           <nav
@@ -89,27 +89,24 @@ export const LandingHeader: React.FC = () => {
             >
               FAQ
             </button>
-            <button
-              type="button"
-              onClick={() => navigate('/tools')}
+            <Link
+              to="/tools"
               className="px-3 py-2 rounded-lg hover:text-slate-900 hover:bg-slate-100 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors focus-visible:ring-2 focus-visible:ring-brand-500 outline-hidden text-brand-600 dark:text-brand-400 font-semibold"
             >
               Tools
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate('/blog')}
+            </Link>
+            <Link
+              to="/blog"
               className="px-3 py-2 rounded-lg hover:text-slate-900 hover:bg-slate-100 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors focus-visible:ring-2 focus-visible:ring-brand-500 outline-hidden text-slate-600 dark:text-slate-300"
             >
               Guides
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate('/resources')}
+            </Link>
+            <Link
+              to="/resources"
               className="px-3 py-2 rounded-lg hover:text-slate-900 hover:bg-slate-100 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors focus-visible:ring-2 focus-visible:ring-brand-500 outline-hidden text-slate-600 dark:text-slate-300"
             >
               Resources
-            </button>
+            </Link>
           </nav>
 
           {/* Right Action Buttons */}
@@ -179,39 +176,30 @@ export const LandingHeader: React.FC = () => {
             >
               <span>FAQ</span>
             </button>
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate('/tools');
-              }}
+            <Link
+              to="/tools"
+              onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 text-left font-semibold text-brand-600 dark:text-brand-400"
             >
               <span>Free Study Tools</span>
               <Sparkles className="w-4 h-4 text-brand-500" />
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate('/blog');
-              }}
+            </Link>
+            <Link
+              to="/blog"
+              onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 text-left"
             >
               <span>Study Guides &amp; Blog</span>
               <BookOpen className="w-4 h-4 text-slate-400" />
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate('/resources');
-              }}
+            </Link>
+            <Link
+              to="/resources"
+              onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 text-left"
             >
               <span>Free Printables &amp; Sheets</span>
               <FileText className="w-4 h-4 text-slate-400" />
-            </button>
+            </Link>
           </nav>
 
           <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-2">

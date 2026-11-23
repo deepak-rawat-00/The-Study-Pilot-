@@ -4,9 +4,9 @@ import { LandingFooter } from '../components/landing/LandingFooter';
 import { SEOHead } from '../components/seo/SEOHead';
 import { getAllArticles, getFeaturedArticle } from './articlesRegistry';
 import { BLOG_CATEGORIES } from './categories';
-import { useRouter } from '../context/RouterContext';
 import { Badge } from '../components/common/Badge';
 import { Button } from '../components/common/Button';
+import { Link } from '../components/common/Link';
 import {
   BookOpen,
   Search,
@@ -20,7 +20,6 @@ import {
 import { cn } from '../utils/cn';
 
 export const BlogIndexPage: React.FC = () => {
-  const { navigate } = useRouter();
   const allArticles = useMemo(() => getAllArticles(), []);
   const featuredArticle = useMemo(() => getFeaturedArticle(), []);
 
@@ -164,13 +163,12 @@ export const BlogIndexPage: React.FC = () => {
               </div>
 
               <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">
-                <button
-                  type="button"
-                  onClick={() => navigate(`/blog/${featuredArticle.slug}`)}
+                <Link
+                  to={`/blog/${featuredArticle.slug}`}
                   className="hover:text-brand-600 dark:hover:text-brand-400 text-left transition-colors"
                 >
                   {featuredArticle.title}
-                </button>
+                </Link>
               </h2>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
@@ -178,15 +176,13 @@ export const BlogIndexPage: React.FC = () => {
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Button
-                  size="md"
-                  variant="primary"
-                  onClick={() => navigate(`/blog/${featuredArticle.slug}`)}
-                  rightIcon={<ArrowRight className="w-4 h-4" />}
-                  className="font-bold shadow-md shadow-brand-500/20"
+                <Link
+                  to={`/blog/${featuredArticle.slug}`}
+                  className="inline-flex items-center justify-center font-bold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 select-none active:scale-[0.98] bg-brand-600 hover:bg-brand-700 text-white shadow-md shadow-brand-500/20 text-sm px-4 py-2 gap-2"
                 >
-                  Read Complete Guide
-                </Button>
+                  <span>Read Complete Guide</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
                 <span className="text-xs text-slate-500 dark:text-slate-400">
                   By {featuredArticle.author.name}
                 </span>
@@ -251,13 +247,12 @@ export const BlogIndexPage: React.FC = () => {
                     </div>
 
                     <h4 className="text-lg font-bold text-slate-900 dark:text-white leading-snug">
-                      <button
-                        type="button"
-                        onClick={() => navigate(`/blog/${art.slug}`)}
+                      <Link
+                        to={`/blog/${art.slug}`}
                         className="hover:text-brand-600 dark:hover:text-brand-400 text-left transition-colors"
                       >
                         {art.title}
-                      </button>
+                      </Link>
                     </h4>
 
                     <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
@@ -273,14 +268,13 @@ export const BlogIndexPage: React.FC = () => {
                         day: 'numeric',
                       })}
                     </span>
-                    <button
-                      type="button"
-                      onClick={() => navigate(`/blog/${art.slug}`)}
+                    <Link
+                      to={`/blog/${art.slug}`}
                       className="font-bold text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300 inline-flex items-center gap-1"
                     >
                       <span>Read Guide</span>
                       <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                    </Link>
                   </div>
                 </article>
               ))}
@@ -305,22 +299,19 @@ export const BlogIndexPage: React.FC = () => {
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-4">
-              <Button
-                size="lg"
-                variant="primary"
-                onClick={() => navigate('/tools/study-planner-generator')}
-                className="bg-white text-brand-900 hover:bg-slate-100 font-bold"
-                rightIcon={<ArrowRight className="w-4 h-4" />}
+              <Link
+                to="/tools/study-planner-generator"
+                className="inline-flex items-center justify-center font-bold rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 select-none active:scale-[0.98] bg-white text-brand-900 hover:bg-slate-100 text-base px-5 py-2.5 gap-2.5 shadow-sm"
               >
-                Launch Study Planner Generator
-              </Button>
-              <button
-                type="button"
-                onClick={() => navigate('/tools/weekly-study-planner')}
+                <span>Launch Study Planner Generator</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/tools"
                 className="text-xs sm:text-sm font-semibold text-brand-100 hover:text-white underline underline-offset-4"
               >
                 Explore All Free Tools &rarr;
-              </button>
+              </Link>
             </div>
           </div>
         </div>
